@@ -1,76 +1,49 @@
-﻿/*// Задача 19: Напишите программу, которая принимает на вход пятизначное число и проверяет, является ли оно палиндромом.
-
-Console.Write("Enter a five-digit number: ");
-string? number = Console.ReadLine();
-if (number!.Length == 5)
-{
-    CheckingNumber(number);
-    void CheckingNumber(string number)
-    {
-        if (number[0]==number[4] || number[1]==number[3])
-        {
-            Console.WriteLine($"Number: {number} - is palindrome.");
-        }
-        else Console.WriteLine($"Number: {number} - is not a palindrome");
-    }
-}
-else Console.WriteLine("This number is not five digits");
-*/
-
-/*//Задача 21. Напишите программу, которая принимает на вход координаты двух точек и находит расстояние между ними в 3D пространстве.
-
-int xA = Coordinate("x", "A");
-int yA = Coordinate("y", "A");
-int zA = Coordinate("z", "A");
-int xB = Coordinate("x", "B");
-int yB = Coordinate("y", "B");
-int zB = Coordinate("z", "B");
-
-int Coordinate(string coorName, string pointName)
-{
-    Console.Write($"Enter coordinate {coorName} of point {pointName}: ");
-    return Convert.ToInt16(Console.ReadLine());
-}
-double Decision(double xA, double xB, 
-                double yA, double yB, 
-                double zA, double zB)
-{
-  return Math.Sqrt(Math.Pow((xB-xA), 2) + 
-                   Math.Pow((yB-yA), 2) + 
-                   Math.Pow((zB-zA), 2));
-}
-double segmentLength=Math.Round(Decision(xA, xB, yA, yB, zA, zB), 2);
-Console.WriteLine($"Segment length  {segmentLength}");
-*/
-
-/*//Задача 23: Напишите программу, которая принимает на вход число (N) и выдаёт таблицу кубов чисел от 1 до N.
+/*//Задача 25: Напишите цикл, который принимает на вход два числа (A и B) и возводит число A в натуральную степень B.
 
 Console.Write("Enter a number: ");
-int square = Convert.ToInt32(Console.ReadLine());
+int a = Convert.ToInt32(Console.ReadLine());
+Console.Write("Enter exponent: ");
+int b = Convert.ToInt32(Console.ReadLine());
+int exp = a;
+for (int i = 1; i < b; i++)
+    exp = exp * a;
+Console.WriteLine($"{a} ^ {b} = {exp}");
+*/
 
-void Square(int[] square)
+/*//Задача 27: Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.
+
+Console.Write("Enter a number: ");
+int i = Convert.ToInt32(Console.ReadLine());
+int sum = 0;
+while (i > 0)
 {
-  int counter = 0;
-  int length = square.Length;
-  while (counter < length)
-  {
-    square[counter] = Convert.ToInt32(Math.Pow(counter, 3));
-    counter++;
-  }
+    int num = i % 10;
+    i = i / 10;
+    sum = sum + num;
 }
+Console.WriteLine("Summary of numbers is: " +sum);
+*/
 
-void PrintArry(int[] coll)
+/*//Задача 29: Напишите программу, которая задаёт массив из m элементов и выводит их на экран.
+
+int[] CreateArray(int size)
 {
-  int count = coll.Length;
-  int index = 0;
-  while(index < count)
-  {
-    Console.Write(coll[index]+ " ");
-    index++;
-  }
-} 
-
-int[] arry = new int[square+1];
-Square(arry);
-PrintArry(arry);
+    int[] array = new int[size];
+    for(int i = 0; i<size; i++)
+    {
+        Console.Write($"Enter a {i+1} element of array: ");
+        array[i] = Convert.ToInt32(Console.ReadLine());
+    }
+    return array;
+}
+void ShowArray(int[] array)
+{
+    for(int i=0; i<array.Length; i++)
+        Console.Write(array[i]+"");
+    Console.WriteLine();
+}
+Console.Write("Input a lenght of array: ");
+int lenght = Convert.ToInt32(Console.ReadLine());
+int[] newArray = CreateArray(lenght);
+ShowArray(newArray);
 */
