@@ -1,49 +1,94 @@
-/*//Задача 25: Напишите цикл, который принимает на вход два числа (A и B) и возводит число A в натуральную степень B.
+//Задача 34: Задайте массив заполненный случайными положительными трёхзначными числами. Напишите программу, которая покажет количество чётных чисел в массиве.
 
-Console.Write("Enter a number: ");
-int a = Convert.ToInt32(Console.ReadLine());
-Console.Write("Enter exponent: ");
-int b = Convert.ToInt32(Console.ReadLine());
-int exp = a;
-for (int i = 1; i < b; i++)
-    exp = exp * a;
-Console.WriteLine($"{a} ^ {b} = {exp}");
-*/
+Console.WriteLine("Input a size of array: ");
+int size = Convert.ToInt32(Console.ReadLine());
+int[] array = new int[size];
+CreateRandomArray(array);
+ShowArray(array);
+int count = 0;
+for (int i = 0; i < array.Length; i++) 
+if(array[i] % 2 == 0)
+count++;
 
-/*//Задача 27: Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.
-
-Console.Write("Enter a number: ");
-int i = Convert.ToInt32(Console.ReadLine());
-int sum = 0;
-while (i > 0)
+Console.WriteLine($"Total {array.Length} numbers, {count} even numbers");
+void CreateRandomArray(int[] array)
 {
-    int num = i % 10;
-    i = i / 10;
-    sum = sum + num;
-}
-Console.WriteLine("Summary of numbers is: " +sum);
-*/
-
-/*//Задача 29: Напишите программу, которая задаёт массив из m элементов и выводит их на экран.
-
-int[] CreateArray(int size)
-{
-    int[] array = new int[size];
-    for(int i = 0; i<size; i++)
+    for(int i = 0; i<array.Length; i++)
     {
-        Console.Write($"Enter a {i+1} element of array: ");
-        array[i] = Convert.ToInt32(Console.ReadLine());
+        array[i] = new Random().Next(100,1000);
     }
-    return array;
 }
 void ShowArray(int[] array)
 {
     for(int i=0; i<array.Length; i++)
-        Console.Write(array[i]+"");
+        Console.Write(array[i]+",");
     Console.WriteLine();
 }
-Console.Write("Input a lenght of array: ");
-int lenght = Convert.ToInt32(Console.ReadLine());
-int[] newArray = CreateArray(lenght);
-ShowArray(newArray);
-*/
+
+//Задача 36: Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, стоящих на нечётных позициях.
+
+Console.WriteLine("Input a size of array: ");
+int size = Convert.ToInt32(Console.ReadLine());
+int[] array = new int[size];
+CreateRandomArray(array);
+ShowArray(array);
+int sum = 0;
+for (int i = 0; i < array.Length; i+=2)
+{
+    sum += array[i];
+}
+
+Console.WriteLine($"Summary of numbers in not even index is: {sum}");
+void CreateRandomArray(int[] array)
+{
+    for(int i = 0; i<array.Length; i++)
+    {
+        array[i] = new Random().Next(1,10);
+    }
+}
+void ShowArray(int[] array)
+{
+    for(int i=0; i<array.Length; i++)
+        Console.Write(array[i]+",");
+    Console.WriteLine();
+}
+
+
+//Задача 38: Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
+
+Console.WriteLine("Input a size of array: ");
+int size = Convert.ToInt32(Console.ReadLine());
+int [] array = new int[size];
+CreateRandomArray(array);
+ShowArray(array);
+int min = Int32.MaxValue;
+int max = Int32.MinValue;
+
+for (int i = 0; i < array.Length; i++)
+{
+    if (array[i] > max)
+        {
+            max = array[i];
+        }
+    if (array[i] < min)
+        {
+            min = array[i];
+        }
+}
+Console.WriteLine();
+Console.WriteLine($"Difference between maxValue and minValiue is: {max - min}");
+
+void CreateRandomArray(int[] numbers)
+{
+    for(int i = 0; i < array.Length; i++)
+        {
+            array[i] = Convert.ToInt32(new Random().Next(1,100));
+        }
+}
+void ShowArray(int[] array)
+{
+    for(int i = 0; i < array.Length; i++)
+        {
+            Console.Write(array[i] + " ");
+        }
+}
