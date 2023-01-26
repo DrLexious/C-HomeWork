@@ -1,94 +1,73 @@
-//Задача 34: Задайте массив заполненный случайными положительными трёхзначными числами. Напишите программу, которая покажет количество чётных чисел в массиве.
-
-Console.WriteLine("Input a size of array: ");
-int size = Convert.ToInt32(Console.ReadLine());
-int[] array = new int[size];
-CreateRandomArray(array);
-ShowArray(array);
-int count = 0;
-for (int i = 0; i < array.Length; i++) 
-if(array[i] % 2 == 0)
-count++;
-
-Console.WriteLine($"Total {array.Length} numbers, {count} even numbers");
-void CreateRandomArray(int[] array)
+/*//Пользователь вводит с клавиатуры M чисел. Посчитайте, сколько чисел больше 0 ввёл пользователь.
+int[] StringToNum(string input)
 {
-    for(int i = 0; i<array.Length; i++)
+    int count = 1;
+    for (int i = 0; i < input.Length; i++)
     {
-        array[i] = new Random().Next(100,1000);
+        if (input[i] == ',')
+        {
+            count++;
+        }
     }
+    int[] numbers = new int [count];
+    int index = 0;
+    for (int i = 0; i < input.Length; i++)
+    {
+        string temp = "";
+        while (input [i] != ',')
+        {
+        if(i != input.Length - 1)
+        {
+            temp += input [i].ToString();
+            i++;
+        }
+        else
+        {
+            temp += input [i].ToString();
+            break;
+        }
+        }
+        numbers[index] = Convert.ToInt32(temp);
+        index++;
+    }
+    return numbers;
 }
+
 void ShowArray(int[] array)
 {
-    for(int i=0; i<array.Length; i++)
-        Console.Write(array[i]+",");
-    Console.WriteLine();
+    for (int i = 0; i<array.Length; i++)
+    {
+        Console.Write(array[i] + ", ");
+    }
 }
 
-//Задача 36: Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, стоящих на нечётных позициях.
-
-Console.WriteLine("Input a size of array: ");
-int size = Convert.ToInt32(Console.ReadLine());
-int[] array = new int[size];
-CreateRandomArray(array);
-ShowArray(array);
+Console.Write("Enter numbers separated by comma: ");
+int[] numbers = StringToNum(Console.ReadLine());
+ShowArray(numbers);
 int sum = 0;
-for (int i = 0; i < array.Length; i+=2)
+for (int i = 0; i < numbers.Length; i++)
 {
-    sum += array[i];
-}
-
-Console.WriteLine($"Summary of numbers in not even index is: {sum}");
-void CreateRandomArray(int[] array)
-{
-    for(int i = 0; i<array.Length; i++)
+    if (numbers[i] > 0)
     {
-        array[i] = new Random().Next(1,10);
+        sum++;
     }
 }
-void ShowArray(int[] array)
-{
-    for(int i=0; i<array.Length; i++)
-        Console.Write(array[i]+",");
-    Console.WriteLine();
-}
+Console.WriteLine($"Numbers greater than 0: {sum}");
+*/
 
+/*//Напишите программу, которая найдёт точку пересечения двух прямых, заданных уравнениями y = k1 * x + b1, y = k2 * x + b2; значения b1, k1, b2 и k2 задаются пользователем.
 
-//Задача 38: Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
+Console.WriteLine("Enter b1: ");
+float b1 = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Enter k1: ");
+float k1 = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Enter b2: ");
+float b2 = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Enter k2: ");
+float k2 = Convert.ToInt32(Console.ReadLine());
 
-Console.WriteLine("Input a size of array: ");
-int size = Convert.ToInt32(Console.ReadLine());
-int [] array = new int[size];
-CreateRandomArray(array);
-ShowArray(array);
-int min = Int32.MaxValue;
-int max = Int32.MinValue;
+float x = (-b2+b1)/(-k1+k2);
+float y = k2*x+b2;
 
-for (int i = 0; i < array.Length; i++)
-{
-    if (array[i] > max)
-        {
-            max = array[i];
-        }
-    if (array[i] < min)
-        {
-            min = array[i];
-        }
-}
-Console.WriteLine();
-Console.WriteLine($"Difference between maxValue and minValiue is: {max - min}");
-
-void CreateRandomArray(int[] numbers)
-{
-    for(int i = 0; i < array.Length; i++)
-        {
-            array[i] = Convert.ToInt32(new Random().Next(1,100));
-        }
-}
-void ShowArray(int[] array)
-{
-    for(int i = 0; i < array.Length; i++)
-        {
-            Console.Write(array[i] + " ");
-        }
-}
+Console.WriteLine($"Two straight lines intersect in point X: {x}, Y: {y}");
+*/
